@@ -105,45 +105,46 @@ class ArsipController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validateWith([
-            'arsip' => 'required|max:255',
+            'arsip' => 'required|max:255'
           ]);
-
-          $item = Arsip::findOrFail($id);
-
-          if (empty($item)) {
+          $item = Arsip::find($id);
+              if (empty($item)) {
             return response()->json(['message' => 'Sorry file does not exist'], 400);
-            }
-            $photos = $request->file('file');
+            }else{
+                $photos = $request->file('file');
 
-            if($photos){
-                $file_path = $this->photos_path . '/' . $book->filename;
-
-                if (file_exists($file_path)) {
-                    unlink($file_path);
+                if($photos){
+                    $file_path = $this->photos_path . '/' . $item->filename;
+    
+                    if (file_exists($file_path)) {
+                        unlink($file_path);
+                    }
+    
+                    if (!is_array($photos)) {
+                        $photos = [$photos];
+                    }
+    
+                    if (!is_dir($this->photos_path)) {
+                        mkdir($this->photos_path, 0777);
+                    }
+    
+                    $photo = $photos[0];
+                    $name = sha1(date('YmdHis') . str_random(30));
+                    $save_name = $name . '.' . $photo->getClientOriginalExtension();
+                    $photo->move($this->photos_path, $save_name);
+    
+                    $item->filename = $save_name;
+                    $item->originalName = basename($photo->getClientOriginalName());
                 }
+                
+              $item->arsip = $request->arsip;
+              $item->save();
+    
+              return $item;
+        }
 
-                if (!is_array($photos)) {
-                    $photos = [$photos];
-                }
-
-                if (!is_dir($this->photos_path)) {
-                    mkdir($this->photos_path, 0777);
-                }
-
-                $photo = $photos[0];
-                $name = sha1(date('YmdHis') . str_random(30));
-                $save_name = $name . '.' . $photo->getClientOriginalExtension();
-                $photo->move($this->photos_path, $save_name);
-
-                $item->filename = $save_name;
-                $item->originalName = basename($photo->getClientOriginalName());
-            }
-            
-          $item->arsip = $request->arsip;
-          $item->save();
-
-          return $item;
     }
 
     /**

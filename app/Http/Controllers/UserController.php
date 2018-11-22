@@ -19,6 +19,7 @@ class UserController extends Controller
       $user->save();
       $user->syncRoles(explode(',', "user"));
       
+      Auth::login($user);
 
       return $this->respondWithToken($user->token);
     }
@@ -29,9 +30,11 @@ class UserController extends Controller
 
       if (!$user = Auth::attempt($credentials)) {
         return response()->json(['error' => 'Unauthorized'], 401);
+      }else{
+          $token = Auth::user()->first()->token;
       }
 
-      return $this->respondWithToken($user->token);
+      return $this->respondWithToken($token);
     }
 
     protected function respondWithToken($token)

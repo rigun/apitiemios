@@ -7,7 +7,7 @@ return [
             'profile' => 'r,u'
         ],
         'user' => [
-            'profile' => 'r,u'
+            'profile' => 'c,r,u,d'
         ],
     ],
     'permission_structure' => [

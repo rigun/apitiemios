@@ -86,7 +86,9 @@ class UsersDetailController extends Controller
     public function update(Request $request, $id)
     {
         $this->validateWith([
-            'detail' => 'required|max:255',
+            'tanggalLahir' => 'required',
+            'nomorHp' => 'required',
+            'jenisKelamin' => 'required',
           ]);
 
           $user = User::findOrFail($id);
@@ -94,9 +96,9 @@ class UsersDetailController extends Controller
           {
             if($request->name != null){
                 $user->name = $request->name;
+                $user->save();
             }
             $item = UsersDetail::where('user_id', $id)->first();
-            $item->detail = $request->detail;
             $item->tanggalLahir = $request->tanggalLahir;
             $item->nomorHp = $request->nomorHp;
             $item->jenisKelamin = $request->jenisKelamin;
