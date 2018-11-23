@@ -67,7 +67,7 @@
                     this.load = false;
                     this.$toast.open({
                             duration: 500,
-                            message: 'Coba Lagi',
+                            message: 'Coba Lagi ',
                             position: 'is-bottom',
                             type: 'is-danger',
                             queue: false,

@@ -53506,7 +53506,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.load = false;
                 _this.$toast.open({
                     duration: 500,
-                    message: 'Coba Lagi',
+                    message: 'Coba Lagi ',
                     position: 'is-bottom',
                     type: 'is-danger',
                     queue: false
