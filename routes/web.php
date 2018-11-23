@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {return view('app');});
+Route::get('/dashboard', function () {return view('app');});
+Route::get('/dashboard/arsip', function () {return view('app');});
+Route::get('/dashboard/catatan', function () {return view('app');});
+Route::get('/dashboard/jadwal', function () {return view('app');});
+Route::get('/verifikasiEmail/{token}', function () {return view('app');});

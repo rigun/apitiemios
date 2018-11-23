@@ -42,7 +42,7 @@ class UserController extends Controller
       
       return response()->json([
         'access_token' => $token,
-        'status' => Auth::user()->first()->status,
+        'status' => Auth::user()->status,
         'role' => Auth::user()->roles()->first()->name
       ]);
     }
