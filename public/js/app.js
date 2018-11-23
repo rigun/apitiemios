@@ -48249,7 +48249,7 @@ var render = function() {
                 _vm.statusMsg != 0
                   ? _c("p", [
                       _vm._v(
-                        "Terima kasih sudah melakukan verfikasi email, selamat bergabung bersama Bukren"
+                        "Terima kasih sudah melakukan verfikasi email, selamat bergabung bersama TiemSchedule"
                       )
                     ])
                   : _vm._e()
