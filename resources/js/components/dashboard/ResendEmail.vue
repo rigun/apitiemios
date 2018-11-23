@@ -56,10 +56,10 @@
                     email: this.email,
                 }).then(response => {
                     this.$toast.open({
-                            duration: 500,
-                            message: response,
+                            duration: 2000,
+                            message: 'Email Terkirim',
                             position: 'is-bottom',
-                            type: 'is-danger',
+                            type: 'is-success',
                             queue: false,
                     })
                 }).catch(error => {

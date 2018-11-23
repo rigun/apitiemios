@@ -53495,10 +53495,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: this.email
             }).then(function (response) {
                 _this.$toast.open({
-                    duration: 500,
-                    message: response,
+                    duration: 2000,
+                    message: 'Email Terkirim',
                     position: 'is-bottom',
-                    type: 'is-danger',
+                    type: 'is-success',
                     queue: false
                 });
             }).catch(function (error) {
