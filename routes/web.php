@@ -16,4 +16,5 @@ Route::get('/dashboard', function () {return view('app');});
 Route::get('/dashboard/arsip', function () {return view('app');});
 Route::get('/dashboard/catatan', function () {return view('app');});
 Route::get('/dashboard/jadwal', function () {return view('app');});
+Route::get('/dashboard/resend', function () {return view('app');});
 Route::get('/verifikasiEmail/{token}', function () {return view('app');});
