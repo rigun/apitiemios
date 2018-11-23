@@ -53494,6 +53494,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/mail/send', {
                 email: this.email
             }).then(function (response) {
+                _this.load = false;
                 _this.$toast.open({
                     duration: 2000,
                     message: 'Email Terkirim',

@@ -55,6 +55,7 @@
                 axios.post('/api/mail/send', {
                     email: this.email,
                 }).then(response => {
+                    this.load = false;
                     this.$toast.open({
                             duration: 2000,
                             message: 'Email Terkirim',
