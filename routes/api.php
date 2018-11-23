@@ -44,3 +44,5 @@ Route::post('/user/register', 'UserController@register');
 Route::post('/user/login', 'UserController@login');
 Route::delete('/user/{id}', 'UserController@destroy');
 
+Route::post('/mail/send', 'MailController@send');
+Route::get('/user/verfikasi/{token}', 'UserController@verifikasi');
