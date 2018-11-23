@@ -133,7 +133,13 @@ class UserController extends Controller
     {
       
     }
-
+    public function verifikasi($token)
+    {
+          $user = User::where('token', $token)->first();
+          $user->status = 1;
+          $user->save();
+          return 'Verifikasi Berhasil';
+    }
     /**
      * Remove the specified resource from storage.
      *
