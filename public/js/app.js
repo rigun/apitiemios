@@ -53495,6 +53495,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: this.email
             }).then(function (response) {
                 _this.load = false;
+                console.log(response);
                 _this.$toast.open({
                     duration: 2000,
                     message: 'Email Terkirim',

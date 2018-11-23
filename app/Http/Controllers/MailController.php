@@ -19,6 +19,8 @@ class MailController extends Controller
         $objDemo = new \stdClass();
         $objDemo->token = $user->token;
  
-        return Mail::to($user->email)->send(new VerificationMail($objDemo));
+        Mail::to($user->email)->send(new VerificationMail($objDemo));
+
+        return 'email terkirim';
     }
 }

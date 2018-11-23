@@ -56,6 +56,7 @@
                     email: this.email,
                 }).then(response => {
                     this.load = false;
+                    console.log(response);
                     this.$toast.open({
                             duration: 2000,
                             message: 'Email Terkirim',
