@@ -39,7 +39,7 @@ Route::post('/userdetail', 'UsersDetailController@store');
 Route::patch('/userdetail/{id}', 'UsersDetailController@update');
 
 Route::get('/user', 'UserController@index');
-Route::get('/user/{id}', 'UsersDetailController@show');
+Route::get('/user/{id}', 'UserController@show');
 Route::post('/user/register', 'UserController@register');
 Route::post('/user/login', 'UserController@login');
 Route::delete('/user/{id}', 'UserController@destroy');
