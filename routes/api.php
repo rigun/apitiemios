@@ -43,6 +43,8 @@ Route::get('/user/{id}', 'UsersDetailController@show');
 Route::post('/user/register', 'UserController@register');
 Route::post('/user/login', 'UserController@login');
 Route::delete('/user/{id}', 'UserController@destroy');
+Route::patch('/user/name/{id}', 'UserController@update');
+Route::patch('/user/password/{id}', 'UserController@updatePassword');
 
 Route::post('/mail/send', 'MailController@send');
 Route::get('/user/verfikasi/{token}', 'UserController@verifikasi');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
 use Auth;
@@ -31,7 +32,7 @@ class UserController extends Controller
       if (!$user = Auth::attempt($credentials)) {
         return response()->json(['error' => 'Unauthorized'], 401);
       }else{
-          $token = Auth::user()->first()->token;
+          $token = Auth::user()->token;
       }
 
       return $this->respondWithToken($token);
@@ -42,6 +43,7 @@ class UserController extends Controller
       
       return response()->json([
         'access_token' => $token,
+        'user_id' => Auth::user()->id,
         'status' => Auth::user()->status,
         'role' => Auth::user()->roles()->first()->name
       ]);
@@ -107,7 +109,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $item = User::where('id',$id)->with('catatan','arsip','detail','jadwal')->first();
+        $item = User::where('id',$id)->with('catatan','arsip','jadwal')->first();
         return $item;
     }
 
@@ -131,7 +133,32 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+        $this->validateWith([
+            'name' => 'required',
+        
+          ]);
+      $item = User::find($id);
+      $item->name = $request->name;
+      $item->save();
+      return $item;
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $this->validateWith([
+            'password_lama' => 'required',
+            'password_baru' => 'required',
+          ]);
+          $user = User::findOrFail($id);
+          if(Hash::check($request->password_lama, $user->password)){
+            $user->password = Hash::make($request->password_baru);    
+            $json=['status' => 'success','msg'=>'Password berhasil diubah'];
+          }else{
+            $json=['status' => 'failed','msg'=>'Password yang anda masukkan salah, silahkan coba lagi'];
+          }
+          $user->save();
+          
+          return response()->json($json);
     }
     public function verifikasi($token)
     {
