@@ -11,6 +11,9 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+        if(User::where('email', '=', $request->email)->exists()){
+            return response()->json(['message' => 'Email Sudah Ada'], 400);
+        }
       $user = new User();
       $user->name = $request->name;
       $user->email = $request->email;
@@ -21,7 +24,7 @@ class UserController extends Controller
       
       Auth::login($user);
 
-      return $this->respondWithToken($user->token);
+      return response()->json(['message' => 'Pendaftaran Berhasil'], 400);
     }
 
     public function login(Request $request)
