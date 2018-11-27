@@ -25,7 +25,7 @@ class UserController extends Controller
       
       Auth::login($user);
 
-      return response()->json(['message' => 'Pendaftaran Berhasil', 'status'=> '200'], 400);
+      return response()->json(['message' => 'Pendaftaran Berhasil, Silahkan Lakukan Verifikasi Email', 'status'=> '200'], 400);
     }
 
     public function login(Request $request)
