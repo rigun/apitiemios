@@ -32,7 +32,7 @@ Route::get('/arsip', 'ArsipController@index');
 Route::get('/arsip/{id}', 'ArsipController@show');
 Route::post('/arsip', 'ArsipController@store');
 Route::delete('/arsip/{id}', 'ArsipController@destroy');
-Route::patch('/arsip/{id}', 'ArsipController@update');
+Route::post('/arsip/{id}', 'ArsipController@update');
 
 Route::get('/userdetail', 'UsersDetailController@index');
 Route::post('/userdetail', 'UsersDetailController@store');
