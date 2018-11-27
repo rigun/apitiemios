@@ -29,6 +29,7 @@ class VerificationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.content');
+        return $this->subject('Verifikasi TiemSchduel')->from('tiemschedule@thekingcorp.org','Tiemschedule')->view('mails.content');
+
     }
 }

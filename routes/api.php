@@ -32,17 +32,19 @@ Route::get('/arsip', 'ArsipController@index');
 Route::get('/arsip/{id}', 'ArsipController@show');
 Route::post('/arsip', 'ArsipController@store');
 Route::delete('/arsip/{id}', 'ArsipController@destroy');
-Route::patch('/arsip/{id}', 'ArsipController@update');
+Route::post('/arsip/{id}', 'ArsipController@update');
 
 Route::get('/userdetail', 'UsersDetailController@index');
 Route::post('/userdetail', 'UsersDetailController@store');
 Route::patch('/userdetail/{id}', 'UsersDetailController@update');
 
 Route::get('/user', 'UserController@index');
-Route::get('/user/{id}', 'UsersDetailController@show');
+Route::get('/user/{id}', 'UserController@show');
 Route::post('/user/register', 'UserController@register');
 Route::post('/user/login', 'UserController@login');
 Route::delete('/user/{id}', 'UserController@destroy');
+Route::patch('/user/name/{id}', 'UserController@update');
+Route::patch('/user/password/{id}', 'UserController@updatePassword');
 
 Route::post('/mail/send', 'MailController@send');
 Route::get('/user/verfikasi/{token}', 'UserController@verifikasi');

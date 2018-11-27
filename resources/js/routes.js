@@ -18,6 +18,7 @@ const DashboardContent = Vue.component('DashboardContent', require('./components
 const ManageCatatan = Vue.component('ManageCatatan', require('./components/dashboard/ManageCatatanComponent.vue'))
 const ManageJadwal = Vue.component('ManageJadwal', require('./components/dashboard/ManageJadwalComponent.vue'))
 const ManageArsip = Vue.component('ManageArsip', require('./components/dashboard/ManageArsipComponent.vue'))
+const Resend = Vue.component('Resend', require('./components/dashboard/ResendEmail.vue'))
 
 const routes = [
  
@@ -73,6 +74,11 @@ const routes = [
                  name: 'ManageArsip',
                  path: 'arsip',
                  component: ManageArsip
+               },
+             {
+                 name: 'Resend',
+                 path: 'resend',
+                 component: Resend
                },
          ]
       }

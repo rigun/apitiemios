@@ -57,6 +57,7 @@
                         <li><router-link v-bind:to="{ name: 'ManageCatatan'}"  ><i class="fa fa-file m-r-10" aria-hidden="true"></i>  <span>Manage Catatan</span> </router-link></li>
                         <li><router-link v-bind:to="{ name: 'ManageJadwal'}"  ><i class="fa fa-file m-r-10" aria-hidden="true"></i>  <span>Manage Jadwal</span> </router-link></li>
                         <li><router-link v-bind:to="{ name: 'ManageArsip'}"  ><i class="fa fa-file m-r-10" aria-hidden="true"></i>  <span>Manage Arsip</span> </router-link></li>
+                        <li><router-link v-bind:to="{ name: 'Resend'}"  ><i class="fa fa-file m-r-10" aria-hidden="true"></i>  <span>Resend</span> </router-link></li>
                     </ul>
                 </div>
             </aside>

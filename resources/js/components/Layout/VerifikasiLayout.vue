@@ -21,7 +21,7 @@
                     <div class="content " style="text-align:center">
                         <img :src="'../../images/logo.png'" alt="" width="140px">
                          <h2>{{msg}}</h2>
-                       <p v-if="statusMsg != 0">Terima kasih sudah melakukan verfikasi email, selamat bergabung bersama Bukren</p>
+                       <p v-if="statusMsg != 0">Terima kasih sudah melakukan verfikasi email, selamat bergabung bersama TiemSchedule</p>
                         
                     </div>
                 </div>
